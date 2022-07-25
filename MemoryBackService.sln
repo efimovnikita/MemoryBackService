@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryBackService", "MemoryBackService\MemoryBackService.csproj", "{955C0616-C5BA-4474-8BE9-4F335BF3AFAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryBackService.Tests", "MemoryBackService.Tests\MemoryBackService.Tests.csproj", "{F1C77276-26FA-4AA5-8EA9-E35CE86ABF1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{955C0616-C5BA-4474-8BE9-4F335BF3AFAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{955C0616-C5BA-4474-8BE9-4F335BF3AFAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{955C0616-C5BA-4474-8BE9-4F335BF3AFAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{955C0616-C5BA-4474-8BE9-4F335BF3AFAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C77276-26FA-4AA5-8EA9-E35CE86ABF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C77276-26FA-4AA5-8EA9-E35CE86ABF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C77276-26FA-4AA5-8EA9-E35CE86ABF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C77276-26FA-4AA5-8EA9-E35CE86ABF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
