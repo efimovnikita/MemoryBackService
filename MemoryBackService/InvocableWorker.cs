@@ -27,7 +27,7 @@ namespace MemoryBackService
         public async Task Invoke()
         {
             string assemblyPath = Path.GetDirectoryName(AppContext.BaseDirectory);
-            string connectionString = Path.Combine(assemblyPath!, "theses_test.db");
+            string connectionString = Path.Combine(assemblyPath!, "theses.db");
             _logger.LogInformation("{DbPath}", connectionString);
                 
             using LiteDatabase database = new(connectionString);
