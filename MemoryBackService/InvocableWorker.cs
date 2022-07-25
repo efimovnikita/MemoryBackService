@@ -18,10 +18,14 @@ namespace MemoryBackService
     public class InvocableWorker : IInvocable
     {
         private readonly ILogger<InvocableWorker> _logger;
+        private readonly string _path;
+        private readonly string _api;
 
-        public InvocableWorker(ILogger<InvocableWorker> logger)
+        public InvocableWorker(ILogger<InvocableWorker> logger, string path, string api)
         {
             _logger = logger;
+            _path = path;
+            _api = api;
         }
         
         public async Task Invoke()
@@ -35,7 +39,7 @@ namespace MemoryBackService
 
             await InsertIfEmpty(theses);
 
-            Md md = GetRandomTheses(theses);
+            Md md = GetRandomThesis(theses);
 
             _logger.LogInformation("{Title}", md.Headline.Title.Text);
             await SendMessageToTelegram(md);
@@ -44,7 +48,7 @@ namespace MemoryBackService
             _logger.LogInformation("Theses count: {Count}", theses.Count());
         }
 
-        private static Md GetRandomTheses(ILiteCollection<Md> theses)
+        private static Md GetRandomThesis(ILiteCollection<Md> theses)
         {
             List<Md> list = theses.Query().ToList();
             list.Shuffle();
@@ -52,7 +56,7 @@ namespace MemoryBackService
             return md;
         }
 
-        private static async Task InsertIfEmpty(ILiteCollection<Md> theses)
+        private async Task InsertIfEmpty(ILiteCollection<Md> theses)
         {
             if (theses.Count() == 0)
             {
@@ -64,7 +68,7 @@ namespace MemoryBackService
         {
             try
             {
-                TelegramBotClient bot = new(Program.TelegramBotApiKey);
+                TelegramBotClient bot = new(_api);
                 StringBuilder sb = new();
                 sb.AppendLine($"<b>{md.Headline.Title.Text}</b>");
                 sb.AppendLine();
@@ -82,9 +86,9 @@ namespace MemoryBackService
             }
         }
         
-        private static async Task<List<Md>> ReadAndParse()
+        private async Task<List<Md>> ReadAndParse()
         {
-            string[] files = Directory.GetFiles(Program.PathToTheses, "*.md",
+            string[] files = Directory.GetFiles(_path, "*.md",
                 SearchOption.AllDirectories);
 
             List<Md> mds = new();
