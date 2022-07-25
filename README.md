@@ -1,5 +1,5 @@
 # MemoryBackService
-Проект процесса для автоматической публикации тезисов в Telagram-канал.
+Проект процесса для автоматической публикации тезисов в Telegram-канал.
 
 ## How to start process?
 
@@ -13,7 +13,7 @@ Description=Memory Back Service
 
 [Service]
 Type=notify
-ExecStart=<path_to_executable> <path_to_md_archive> <telegram_api_key>
+ExecStart=<path_to_executable> --path<path_to_md_archive> --api<telegram_api_key>
 
 [Install]
 WantedBy=multi-user.target
